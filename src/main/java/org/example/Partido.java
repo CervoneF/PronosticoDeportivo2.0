@@ -1,5 +1,8 @@
 package org.example;
 
+//import modelo.Equipo;
+//import modelo.ResultadoEnum.Resultados;
+
 public class Partido {
     private Equipo equipo1;
     private Equipo equipo2;
@@ -49,24 +52,39 @@ public class Partido {
     public Partido() {
         super();
     }
+    
+    
+    public String toString() {
+	    return "Equipo uno: " + getEquipo1().getNombre() + " que metió " + getResultadoequipo1() + " goles." +
+	    		" - Equipo dos: " + getEquipo2().getNombre() + " que metió " + getResultadoequipo2() + " goles.";
+	}
 
-    public resultadoEnum resultado(Equipo equipo) {
-        if (resultadoequipo1 == resultadoequipo2) {
-            return resultadoEnum.empate;}
+    
+    
+    public resultadoEnum Resultados (Equipo equipo) {
 
-        if (equipo.equals(equipo1)) {
-            if(resultadoequipo1 > resultadoequipo2) {
-                return resultadoEnum.ganador;
-            } else{
-                return resultadoEnum.perdedor;}
-            }
-        if (equipo.equals(equipo2)) {
-            if (resultadoequipo2 > resultadoequipo1) {
-                return resultadoEnum.ganador;
-            } else {
-                return resultadoEnum.perdedor;
-            }
-        }
-            return null;
-        }
-    }
+    	if (equipo.getNombre().equals(this.equipo1.getNombre())) {
+
+    	    if (this.resultadoequipo1 > this.resultadoequipo2) {
+    	        return resultadoEnum.ganador;
+    	    } else if (this.resultadoequipo1 < this.resultadoequipo2) {
+    	        return resultadoEnum.perdedor;
+    	    }
+    	} else if (equipo.getNombre().equals(this.equipo2.getNombre())) {
+    	    if (this.resultadoequipo2 > this.resultadoequipo1) {
+    	        return resultadoEnum.ganador;
+    	    } else if (this.resultadoequipo2 < this.resultadoequipo1) {
+    	        return resultadoEnum.perdedor;
+    	    }
+    	}
+    	
+    	if (this.resultadoequipo2 == this.resultadoequipo1) {
+    	    return resultadoEnum.empate;
+    	} else {
+    	    return resultadoEnum.error;
+    	}
+
+	}
+		
+	
+}

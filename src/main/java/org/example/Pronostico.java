@@ -1,10 +1,13 @@
 package org.example;
 
+//import modelo.Persona;
+
 public class Pronostico {
     private Partido partido;
     private Equipo equipo;
     private resultadoEnum resultado;
-
+    
+    
     public Pronostico() {
         super();
     }
@@ -40,7 +43,7 @@ public class Pronostico {
     }
 
     public int puntos() {
-        if (partido.resultado(equipo) == resultado) {
+        if (partido.Resultados(equipo) == resultado) {
             return 1;
         } else {
             return 0;
